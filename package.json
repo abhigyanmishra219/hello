@@ -1,0 +1,22 @@
+{
+  "name": "secret-birthday-gift",
+  "version": "1.0.0",
+  "description": "An interactive Shinchan-themed birthday surprise web application",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "start": "serve . -l 3000",
+    "serve": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "keywords": [
+    "birthday",
+    "surprise",
+    "interactive",
+    "shinchan"
+  ],
+  "author": "saklin_01",
+  "license": "MIT"
+}

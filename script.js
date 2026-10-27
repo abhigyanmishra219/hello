@@ -21,7 +21,7 @@
   }
 
   const ng = document.getElementById('clock-numerals');
-  const nums = ['XII','I','II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+  const nums = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
   nums.forEach((num, idx) => {
     const ang = (idx * 30) * Math.PI / 180;
     const r = 100;
@@ -34,9 +34,9 @@
 })();
 
 /* ─── AUDIO MUTED (PER USER REQUEST) ─── */
-function playTick() {}
-function playKeyClick() {}
-function playMidnightChime() {}
+function playTick() { }
+function playKeyClick() { }
+function playMidnightChime() { }
 
 /* ─── INTIMATE CANDLELIGHT MOTES & ROSE PETALS ─── */
 (function createBackground() {
@@ -46,20 +46,20 @@ function playMidnightChime() {}
     const m = document.createElement('div');
     m.className = 'candle-mote';
     const msz = Math.random() * 5 + 3;
-    m.style.cssText = `width:${msz}px;height:${msz}px;left:${Math.random()*100}%;bottom:${Math.random()*25}%;--md:${Math.random()*5+6}s;--mdelay:-${Math.random()*6}s;`;
+    m.style.cssText = `width:${msz}px;height:${msz}px;left:${Math.random() * 100}%;bottom:${Math.random() * 25}%;--md:${Math.random() * 5 + 6}s;--mdelay:-${Math.random() * 6}s;`;
     bg.appendChild(m);
   }
-  const colors = ['#8a1528','#6b0f1d','#a82035','#4f0b15'];
+  const colors = ['#ff8da1', '#ffd166', '#06d6a0', '#118ab2', '#c77dff'];
   for (let i = 0; i < 16; i++) {
     const p = document.createElement('div');
     p.className = 'petal';
-    p.style.cssText = `left:${Math.random()*105}%;width:${Math.random()*12+10}px;height:${Math.random()*14+12}px;background:${colors[Math.floor(Math.random()*colors.length)]};--pd:${Math.random()*4+5}s;--pdelay:-${Math.random()*7}s;`;
+    p.style.cssText = `left:${Math.random() * 105}%;width:${Math.random() * 12 + 10}px;height:${Math.random() * 14 + 12}px;background:${colors[Math.floor(Math.random() * colors.length)]};--pd:${Math.random() * 4 + 5}s;--pdelay:-${Math.random() * 7}s;`;
     bg.appendChild(p);
   }
 })();
 
 /* ─── SHINCHAN PASSCODE VERIFICATION (4 DIGITS) ─── */
-const TARGET_PASSCODE = "2005"; // 4-digit passcode
+const TARGET_PASSCODE = "2007"; // 4-digit passcode
 
 const SHINCHAN_GIFS = {
   ask: "assets/shinchan-birthday.png",
@@ -168,7 +168,7 @@ function submitBirthdayDate() {
   } else {
     // Wrong Passcode
     img.src = SHINCHAN_GIFS.wrong;
-    txt.textContent = "Oops! Wrong Passcode! Try again, cutie! 🥺";
+    txt.textContent = "Oops! Wrong Passcode! Try again, bestie! 😜";
     card.classList.remove('shake');
     void card.offsetWidth;
     card.classList.add('shake');
@@ -186,7 +186,7 @@ function resetQuiz() {
   const retryBtn = document.getElementById('retry-btn');
 
   img.src = SHINCHAN_GIFS.ask;
-  txt.textContent = "Enter the 4-digit secret passcode 💖";
+  txt.textContent = "Enter the 4-digit secret passcode ✨";
   keypad.classList.remove('hidden-btn');
   retryBtn.classList.add('hidden-btn');
 }
@@ -224,7 +224,7 @@ function handleChoice(choice) {
     }
     const promptEl = document.getElementById('surprise-prompt');
     if (promptEl) {
-      promptEl.innerHTML = "Are you sure? 🥺 Please say YES! 💖";
+      promptEl.innerHTML = "Are you sure? 😜 You know you want to see it! 🎉";
       triggerElementAnim(promptEl, 'prompt-entrance-pop');
     }
     const noBtn = document.getElementById('btn-no');
@@ -421,7 +421,7 @@ const MYSTERY_GIFTS = {
   3: {
     icon: "👑",
     title: "Gift #3: Lifetime Happiness Pass",
-    desc: "Unlimited hugs, endless laughter, and all your deepest birthday wishes coming true! 🎁💫💖"
+    desc: "Endless laughter, unforgettable adventures, and all your biggest dreams coming true! 🎁💫✨"
   }
 };
 
@@ -441,7 +441,7 @@ function openMysteryBox(boxNum) {
 
   launchConfetti();
   const gift = MYSTERY_GIFTS[boxNum] || MYSTERY_GIFTS[3];
-  
+
   const modal = document.getElementById('gift-modal');
   const iconEl = document.getElementById('gift-modal-icon');
   const titleEl = document.getElementById('gift-modal-title');
@@ -463,47 +463,142 @@ function closeGiftModal() {
   }
 }
 
-/* ─── SPECIAL BOX 3: LOVE & BIRTHDAY LETTER (TYPEWRITER ANIMATION) ─── */
-const LETTER_SECTIONS = [
-  {
-    id: 'letter-headline-el',
-    text: "Happy birthday to my favourite\nperson! ❤️"
-  },
-  {
-    id: 'letter-p1-el',
-    text: "I hope this year brings you everything you've been wishing for and so much more. Thank you for making my days happier, my bad days easier, and my life a little more beautiful just by being in it. 🥺💖"
-  },
-  {
-    id: 'letter-p2-el',
-    text: "I'm so lucky to have you, and I can't wait to make a million more memories with you. Here's to you, your dreams, and all the happiness you deserve."
-  },
-  {
-    id: 'letter-closing-el',
-    text: "Happy birthday, my love. I love you more than you know. 🫶🏻🎂❤️"
-  }
-];
+/* ─── SPECIAL BOX 3: BIRTHDAY FRIENDSHIP LETTER (TYPEWRITER ANIMATION & BILINGUAL SUPPORT) ─── */
+const LETTER_CONTENT = {
+  en: [
+    {
+      id: 'letter-headline-el',
+      text: "Happy birthday to an amazing\nfriend! 🎉✨"
+    },
+    {
+      id: 'letter-p1-el',
+      text: "I hope this year brings you endless smiles, exciting adventures, and all the success you deserve! Thank you for always being such a wonderful friend, for all the hilarious moments, and for always having my back. 😄🌟"
+    },
+    {
+      id: 'letter-p2-el',
+      text: "I'm so grateful for our friendship and all the chaotic fun we share. Here's to you, your biggest dreams, and another fantastic year ahead!"
+    },
+    {
+      id: 'letter-closing-el',
+      text: "Have the most amazing birthday ever! Wishing you the best day, bestie! 🥳🎂🎉"
+    }
+  ],
+  ne: [
+    {
+      id: 'letter-headline-el',
+      text: "एकदमै प्यारी साथीलाई\nजन्मदिनको लाखौं लाख शुभकामना! 🎉✨"
+    },
+    {
+      id: 'letter-p1-el',
+      text: "आशा छ यो नयाँ वर्षले तिम्रो जीवनमा अनगिन्ती मुस्कान, रमाइला नयाँ अनुभवहरू र तिमीले पाउनुपर्ने सबै सफलता लिएर आओस्! सधैं यति असल र मायालु साथी बनेकोमा, हँसाउने ती सबै रमाइला पलहरूका लागि, अनि हरपल मेरो साथ दिएकोमा मनैदेखि धेरै धेरै धन्यवाद। 😄🌟"
+    },
+    {
+      id: 'letter-p2-el',
+      text: "हाम्रो यो मित्रता र हामीले सँगै बाँडेका ती सबै पागलपन र रमाइला क्षणहरूको लागि म निकै आभारी छु। तिम्रा सम्पूर्ण ठूला सपनाहरू पूरा हुन्, र आउने वर्ष झनै उत्कृष्ट र जादुमय बनोस्! ✨💫"
+    },
+    {
+      id: 'letter-closing-el',
+      text: "आजको जन्मदिन तिम्रो जीवनकै सबैभन्दा उत्कृष्ट र स्मरणीय रहोस्! तिमीलाई संसारकै सबैभन्दा रमाइलो दिनको शुभकामना, बेस्टी! 🥳🎂🎉"
+    }
+  ]
+};
 
+// Backwards compatibility alias
+const LETTER_SECTIONS = LETTER_CONTENT.en;
+
+let currentLetterLang = 'en';
 let letterTypewriterTimer = null;
 let isLetterTyping = false;
 
-function renderLetterInstant() {
+function getLetterGraphemes(text, lang) {
+  if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+    try {
+      const segmenter = new Intl.Segmenter(lang === 'ne' ? 'ne' : 'en', { granularity: 'grapheme' });
+      return Array.from(segmenter.segment(text), s => s.segment);
+    } catch (e) {
+      // Fallback to Array.from
+    }
+  }
+  return Array.from(text);
+}
+
+function setLetterLanguage(lang, options = {}) {
+  const { immediate = false, animateTypewriter = false } = options;
+  if (!LETTER_CONTENT[lang]) return;
+  currentLetterLang = lang;
+
+  // Update top bar toggle chips
+  const enBtn = document.getElementById('lang-btn-en');
+  const neBtn = document.getElementById('lang-btn-ne');
+  if (enBtn) enBtn.classList.toggle('active', lang === 'en');
+  if (neBtn) neBtn.classList.toggle('active', lang === 'ne');
+
+  // Update quick translate button label
+  const quickLabel = document.getElementById('translate-quick-label');
+  if (quickLabel) {
+    if (lang === 'en') {
+      quickLabel.innerHTML = 'नेपालीमा पढ्नुहोस् (Translate to Nepali) 🇳🇵';
+    } else {
+      quickLabel.innerHTML = 'अंग्रेजीमा हेर्नुहोस् (Read in English) 🇬🇧';
+    }
+  }
+
+  // Update container class for Devanagari typography
+  const cardContainer = document.querySelector('.letter-card-container');
+  if (cardContainer) {
+    if (lang === 'ne') {
+      cardContainer.classList.add('lang-nepali');
+    } else {
+      cardContainer.classList.remove('lang-nepali');
+    }
+  }
+
+  if (animateTypewriter) {
+    startLetterTypewriter();
+  } else {
+    renderLetterInstant(true);
+  }
+}
+
+function toggleLetterLanguage() {
+  const nextLang = currentLetterLang === 'en' ? 'ne' : 'en';
+  setLetterLanguage(nextLang, { animateTypewriter: false });
+}
+
+function renderLetterInstant(withTransition = false) {
   if (letterTypewriterTimer) {
     clearTimeout(letterTypewriterTimer);
     letterTypewriterTimer = null;
   }
   isLetterTyping = false;
-  LETTER_SECTIONS.forEach(sec => {
-    const el = document.getElementById(sec.id);
-    if (!el) return;
-    el.innerHTML = sec.text.replace(/\n/g, '<br>');
-  });
-  const existingCursor = document.getElementById('letter-typing-cursor');
-  if (existingCursor) existingCursor.remove();
+
+  const sections = LETTER_CONTENT[currentLetterLang] || LETTER_CONTENT.en;
+  const contentBody = document.querySelector('.letter-content-body');
+
+  const applyText = () => {
+    sections.forEach(sec => {
+      const el = document.getElementById(sec.id);
+      if (!el) return;
+      el.innerHTML = sec.text.replace(/\n/g, '<br>');
+    });
+    const existingCursor = document.getElementById('letter-typing-cursor');
+    if (existingCursor) existingCursor.remove();
+  };
+
+  if (withTransition && contentBody) {
+    contentBody.classList.add('fade-switch');
+    setTimeout(() => {
+      applyText();
+      contentBody.classList.remove('fade-switch');
+    }, 160);
+  } else {
+    applyText();
+  }
 }
 
 function skipLetterTypewriter() {
   if (isLetterTyping) {
-    renderLetterInstant();
+    renderLetterInstant(false);
   }
 }
 
@@ -514,8 +609,10 @@ function startLetterTypewriter() {
   }
   isLetterTyping = true;
 
+  const sections = LETTER_CONTENT[currentLetterLang] || LETTER_CONTENT.en;
+
   // Clear target containers
-  LETTER_SECTIONS.forEach(sec => {
+  sections.forEach(sec => {
     const el = document.getElementById(sec.id);
     if (el) el.innerHTML = '';
   });
@@ -534,7 +631,7 @@ function startLetterTypewriter() {
   function typeNextChar() {
     if (!isLetterTyping) return;
 
-    if (secIndex >= LETTER_SECTIONS.length) {
+    if (secIndex >= sections.length) {
       isLetterTyping = false;
       setTimeout(() => {
         if (cursorEl && cursorEl.parentNode) {
@@ -546,9 +643,9 @@ function startLetterTypewriter() {
       return;
     }
 
-    const currentSection = LETTER_SECTIONS[secIndex];
+    const currentSection = sections[secIndex];
     const el = document.getElementById(currentSection.id);
-    const chars = Array.from(currentSection.text);
+    const chars = getLetterGraphemes(currentSection.text, currentLetterLang);
 
     if (charIndex < chars.length) {
       const ch = chars[charIndex];
@@ -563,8 +660,8 @@ function startLetterTypewriter() {
         el.appendChild(cursorEl);
       }
 
-      // Natural emotional cadence (pause at punctuation/emojis)
-      const delay = (ch === '.' || ch === '!' || ch === '?' || ch === '💖') ? 110 : (ch === ',' ? 50 : 16);
+      // Natural emotional cadence (pause at punctuation/emojis/danda)
+      const delay = (ch === '.' || ch === '!' || ch === '?' || ch === '।' || ch === '💖') ? 110 : (ch === ',' ? 50 : 16);
       letterTypewriterTimer = setTimeout(typeNextChar, delay);
     } else {
       secIndex++;
@@ -588,8 +685,8 @@ function openLetterModal() {
       void card.offsetWidth;
       card.classList.add('animate-letter');
     }
-    // Launch dynamic live typewriter typing
-    startLetterTypewriter();
+    // Launch dynamic live typewriter typing in current selected language
+    setLetterLanguage(currentLetterLang, { animateTypewriter: true });
   }
 }
 
@@ -673,7 +770,7 @@ function updateClock(h, m, s) {
 
   secHand.style.transform = `rotate(${s === 0 ? 360 : s * 6}deg)`;
   minHand.style.transform = `rotate(${(m + s / 60) * 6}deg)`;
-  hrHand.style.transform  = `rotate(${((h % 12) + m / 60) * 30}deg)`;
+  hrHand.style.transform = `rotate(${((h % 12) + m / 60) * 30}deg)`;
 }
 
 function startCountdown() {
@@ -709,23 +806,23 @@ function triggerMidnight() {
 
 /* ─── CONFETTI SYSTEM ─── */
 function launchConfetti() {
-  const colors = ['#ff6b9d','#ffd700','#ff4db8','#00bcd4','#69f0ae','#ff5722'];
+  const colors = ['#ff6b9d', '#ffd700', '#ff4db8', '#00bcd4', '#69f0ae', '#ff5722'];
   for (let i = 0; i < 80; i++) {
     const c = document.createElement('div');
     c.className = 'confetti-piece';
     const sz = Math.random() * 10 + 7;
-    c.style.cssText = `left:${Math.random()*100}%;top:-20px;width:${sz}px;height:${sz}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'3px'};--cf-d:${Math.random()*3+2}s;--cf-delay:${Math.random()*2}s;`;
+    c.style.cssText = `left:${Math.random() * 100}%;top:-20px;width:${sz}px;height:${sz}px;background:${colors[Math.floor(Math.random() * colors.length)]};border-radius:${Math.random() > .5 ? '50%' : '3px'};--cf-d:${Math.random() * 3 + 2}s;--cf-delay:${Math.random() * 2}s;`;
     document.body.appendChild(c);
   }
 }
 
-/* ─── MOUSE TRAIL HEARTS ─── */
+/* ─── MOUSE TRAIL SPARKLES ─── */
 let lastTrail = 0;
 document.addEventListener('mousemove', e => {
   const now = Date.now();
   if (now - lastTrail < 120 || !document.getElementById('curtain-left').classList.contains('open')) return;
   lastTrail = now;
-  const em = ['💖','💗','💕','✨','🌸'];
+  const em = ['✨', '⭐', '🎉', '🌸', '🎂'];
   const h = document.createElement('div');
   h.className = 'trail-heart';
   h.textContent = em[Math.floor(Math.random() * em.length)];

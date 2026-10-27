@@ -1403,7 +1403,79 @@ html, body {
 .lbs11 { top: 82%; right: 38%; font-size: 1.1rem; animation-delay: 2.4s; }
 .lbs12 { top: 28%; right: 35%; font-size: 1.3rem; animation-delay: 1.9s; }
 
-/* Top Right Cream Back Button (Exact Match) */
+/* Letter Top Bar: Holds Language Switcher Pill & Back Button */
+.letter-top-bar {
+  position: absolute;
+  top: clamp(14px, 3vh, 26px);
+  left: clamp(16px, 3vw, 36px);
+  right: clamp(16px, 3vw, 36px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 30;
+  pointer-events: none;
+}
+.letter-top-bar > * {
+  pointer-events: auto;
+}
+
+/* Language Selection Pill in Top Bar */
+.letter-lang-pill-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(247, 238, 228, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(130, 95, 150, 0.28);
+  border-radius: 30px;
+  padding: 3px 4px;
+  box-shadow: 0 4px 14px rgba(35, 12, 50, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+  gap: 4px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.letter-lang-pill-wrap:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(35, 12, 50, 0.3);
+}
+
+.letter-lang-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  color: #553e4b;
+  font-family: 'Poppins', 'Mukta', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.3, 1);
+  user-select: none;
+}
+.letter-lang-chip .chip-flag {
+  font-size: 1.05rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+  transition: transform 0.2s ease;
+}
+.letter-lang-chip:hover:not(.active) {
+  background: rgba(142, 85, 180, 0.12);
+  color: #2e1738;
+}
+.letter-lang-chip:hover .chip-flag {
+  transform: scale(1.15);
+}
+.letter-lang-chip.active {
+  background: linear-gradient(135deg, #7432a8 0%, #541c80 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(90, 30, 130, 0.38);
+}
+.letter-lang-chip.active .chip-flag {
+  transform: scale(1.08);
+}
+
+/* Top Right Cream Back Button */
 .letter-back-btn {
   position: absolute;
   top: clamp(14px, 3vh, 26px);
@@ -1419,6 +1491,9 @@ html, body {
   box-shadow: 0 3px 8px rgba(40, 20, 60, 0.15);
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   z-index: 20;
+}
+.letter-top-bar .letter-back-btn {
+  position: static;
 }
 .letter-back-btn:hover {
   background: #ffffff;
@@ -1524,6 +1599,72 @@ html, body {
 }
 .letter-closing {
   margin-bottom: 0;
+}
+
+/* Quick Translate Action Button above Headline */
+.letter-translate-action-wrap {
+  margin-bottom: clamp(14px, 2.2vh, 22px);
+  display: flex;
+  justify-content: center;
+}
+.letter-quick-translate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 6px 18px 7px;
+  border-radius: 20px;
+  font-family: 'Poppins', 'Mukta', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(25, 5, 45, 0.22);
+  transition: all 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+.letter-quick-translate-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(40, 10, 60, 0.35);
+}
+.letter-quick-translate-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.translate-sparkle {
+  animation: sparkleTwinkle 1.6s ease-in-out infinite alternate;
+}
+@keyframes sparkleTwinkle {
+  0% { transform: scale(0.9) rotate(0deg); opacity: 0.7; }
+  100% { transform: scale(1.28) rotate(20deg); opacity: 1; }
+}
+
+/* Smooth Crossfade during language switch */
+.letter-content-body {
+  transition: opacity 0.16s ease-in-out, transform 0.16s ease-in-out;
+}
+.letter-content-body.fade-switch {
+  opacity: 0.18;
+  transform: scale(0.985);
+}
+
+/* Nepali Typography Styling Enhancement */
+.letter-card-container.lang-nepali .letter-headline {
+  font-family: 'Mukta', 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.42;
+  font-size: clamp(1.4rem, 2.25vw, 2.15rem);
+}
+.letter-card-container.lang-nepali .letter-para {
+  font-family: 'Mukta', 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 1.55vw, 1.42rem);
+  line-height: 1.68;
+  letter-spacing: 0.015em;
 }
 
 /* Glowing Neon Typewriter Cursor */
@@ -1637,12 +1778,30 @@ html, body {
   }
 
   /* Mobile Letter Modal */
+  .letter-top-bar {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+  .letter-lang-chip {
+    padding: 5px 11px;
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+  .letter-top-bar .letter-back-btn {
+    padding: 5px 16px 6px;
+    font-size: 0.88rem;
+  }
+  .letter-quick-translate-btn {
+    font-size: 0.82rem;
+    padding: 5px 14px 6px;
+  }
   .letter-card-container {
     flex-direction: column;
     max-height: 92vh;
     overflow-y: auto;
     gap: 16px;
-    padding: 56px 16px 24px;
+    padding: 64px 16px 24px;
   }
   .letter-photo-inner {
     width: clamp(160px, 50vw, 220px);
@@ -1659,5 +1818,13 @@ html, body {
     font-size: 1rem;
     line-height: 1.55;
     margin-bottom: 14px;
+  }
+  .letter-card-container.lang-nepali .letter-headline {
+    font-size: 1.25rem;
+    line-height: 1.38;
+  }
+  .letter-card-container.lang-nepali .letter-para {
+    font-size: 1.02rem;
+    line-height: 1.6;
   }
 }
